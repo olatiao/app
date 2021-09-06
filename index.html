@@ -1,0 +1,881 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="shortcut icon" href="/image/wukong/icon.png">
+    <title>健康</title>
+    <meta name="keywords"
+          content="悟空在线,免费应用内测分发平台,ios内测分发,ios内测分发,app内测,ios内测,android内测,Beta app,testflight,应用免费内测,app下载,udid签名,wkzx.store,安卓内测,苹果内测,app内测分发,udid获取,苹果内测分发,企业证书签名">
+    <meta name="description" content="悟空在线应用内测分发-免费的APP应用内测,应用托管,内测分发,ios苹果内测分发,ios苹果内测分发, 为客户提供APP内测托管平台和免费的应用下载分发渠道!">
+    <!-- ywb 10.17add -->
+    <link href="https://wkzx.wang/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="https://wkzx.wang/static/bootstrap/css/style.css" rel="stylesheet">
+    <link href="https://wkzx.wang/css/cellPhone.css?v=20201215" rel="stylesheet">
+    <link href="https://wkzx.wang/css/vipTeach.css?v=20200325" rel="stylesheet">
+    <link rel="stylesheet" href="https://wkzx.wang/static/layui/css/lay.css">
+    <link href="https://wkzx.wang/static/layui/css/layui.css" rel="stylesheet" media="all">
+    <script type="text/javascript" src="https://wkzx.wang/static/jquery/jquery-3.3.1.min.js"></script>
+    <script src="https://wkzx.wang/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://wkzx.wang/static/jquery/progress.js"></script>
+    <script type="text/javascript" src="https://wkzx.wang/js/zepto.min.js"></script>
+    <script src="https://wkzx.wang/static/layui/layui.all.js"></script>
+    <link id="layuicss-laydate" rel="stylesheet"
+          href="https://wkzx.wang/static/layui/css/modules/laydate/default/laydate.css?v=5.0.9" media="all">
+    <link id="layuicss-layer" rel="stylesheet"
+          href="https://wkzx.wang/static/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all">
+    <link id="layuicss-skincodecss" rel="stylesheet" href="https://wkzx.wang/static/layui/css/modules/code.css"
+          media="all">
+
+    <script src="https://wkzx.wang/js/jqQrcode.js"></script>
+
+</head>
+<body>
+
+<style type="text/css">
+
+    html, body {
+        height: 100%;
+
+    }
+
+    a {
+        color: #8a8a8a;
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+
+    .install-tip-mask .first-step-image {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 250px;
+        height: 63px;
+        margin: 10px auto 0
+    }
+
+    .install-tip-mask .second-step-image {
+        margin-top: 15px;
+    }
+
+    #myModal .modal-dialog .modal-content .modal-body img {
+        width: 20px;
+        float: right;
+        margin-right: 35px;
+    }
+
+    .tem .fot .load img {
+        width: 50px;
+        display: none;
+        margin-top: 30px;
+    }
+
+    .qrCodes {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+
+    }
+
+    .qrcodeText {
+        margin-top: 23.5px;
+        font-size: 12px;
+        color: #666666
+    }
+
+
+    .typ_softName {
+        color: #333333;
+        font-size: 36px;
+
+    }
+
+    .tem .fot {
+        margin-top: 0 ! improtant
+    }
+
+    .templet-bottom2 {
+        text-align: center;
+        width: 100%;
+        background: rgba(229, 229, 229, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .templet-bottom2 > div > a {
+        color: rgba(0, 152, 221, 1)
+    }
+
+    .tem .fot input {
+        margin-top: 15px !important;
+    }
+
+    .advertisingBox {
+        width: 100%;
+        height: 24vw;
+        /* background:red; */
+        /* 		position:fixed;
+                left:0;bottom:0; */
+        display: none
+    }
+
+    .advertisingImgBox {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+    }
+
+    .advertisingImgBox #adImg {
+        width: 100%;
+        height: 100%
+    }
+
+    .closeAD {
+        width: 4vw;
+        height: 4vw;
+        position: absolute;
+        right: 1.5vw;
+        top: 1.5vw;
+    }
+
+    .closeAD > img {
+        width: 100%;
+        height: 100%
+    }
+
+    .init {
+        color: #999;
+        font-size: 14px;
+        margin-top: 12px;
+        box-sizing: border-box;
+        text-align: left
+    }
+
+    .language li a {
+        font-size: 10px !important
+    }
+
+    .msg2 {
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .lineBox {
+        display: flex;
+        justify-content: center;
+        align-item: center;
+    }
+
+    .noScript {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        z-index: 999;
+        font-size: 30px
+    }
+
+    .emtryBottom {
+        height: 24vw;
+        width: 100%;
+    }
+</style>
+
+<!-- 手机 模板1 -->
+
+<!-- 内容主体区域 -->
+<!-- 中文开始 -->
+<div class="container" style="min-height: 812px;">
+    <noscript class="noScript">请打开JS引擎</noscript>
+    <div class="row tem">
+        <div class="col-sm-12">
+            <div id="old" class="weixin-QQ-tip ">
+                <span class="china">请点击右上角<br>选择“浏览器中打开”</span>
+                <span class="usa" style="display: none;">Please click on the top right corner <br> to select "open in browser"</span>
+            </div>
+            <div class="vip-weixin-qq " style="display: none;">
+                <span class="china">请点击右上角选择<br>“Safari浏览器打开”</span>
+                <span class="usa" style="display: none;">Please click the top right corner to select <br> Safari browser open</span>
+            </div>
+
+
+            <div class="logo">
+                <img src="https://wkzximg.oss-cn-qingdao.aliyuncs.com/20210906191424XJipKGAcfTasQ2hkLyNMzIbVo37bu4ebQe8RJvRa.png"
+                     class="logo" alt="">
+            </div>
+            <div class="typ">
+                <span class="typ_softName" style="font-weight:700!important;">健康</span>
+            </div>
+            <!--!!!!!!!! china  -->
+            <div class="fot " style="margin:0!important">
+                <h5 style="color: #666666; font-size: 14px; font-weight: 500; margin-top: 10px" class="lineBox">
+                    <span class="china">版本</span><span class="usa" style="display: none;">versions</span>
+                    :&nbsp;8.5.0
+                </h5>
+                <h5 class="msg2" style="margin-top: 10px; font-size: 14px; color: #999999">
+                    <span class="china">大小</span> <span class="usa" style="display: none;">size</span>
+                    :&nbsp;123.33M&nbsp; <span class="china">更新时间</span><span class="usa"
+                                                                              style="display: none;">time</span> :&nbsp;<span
+                        class="updateTime">28分钟前</span>
+                </h5>
+
+
+                <div id="showDownButton">
+
+                    <input type="button" value="立即下载" id="download" onclick="is_weixn_qq()">
+
+
+                </div>
+                <div id="Home" style="display: none;">正在安装,请按Home键查看</div>
+                <div class="load">
+                    <img src="/image/vip/vip-load.gif" alt="" id="load">
+                </div>
+                <input type="button" style="display: none;" value="安装中..." id="resigning"> <input type="button"
+                                                                                                  value="暂不支持此系统"
+                                                                                                  id="notAgree"
+                                                                                                  style="display: none;">
+                <input type="button" value="下载流量已用完,请联系开发者" id="noDownNum" style="display: none;"> <input type="button"
+                                                                                                          value="正在安装"
+                                                                                                          style="display: none;"
+                                                                                                          id="beInstall">
+                <input type="hidden" id="itemservice">
+            </div>
+            <div id="weixinAndQQ" style="display: none;">
+                <span class="china"> 微信/QQ 内无法下载应用</span><span class="usa" style="display: none;">Application cannot be downloaded in wechat/QQ</span>
+            </div>
+            <div class="fot">
+                <h4></h4>
+            </div>
+            <div class="ios" style="margin-bottom: 30px; display: none;" id="trust" onclick="trust()">
+                <span class="china">"未受信任的企业及开发者"的解决办法</span>
+                <span class="usa" style="display: none;"> Solutions for "untrusted enterprises and developers"</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 中文结束-->
+<div class="advertisingBox" id="ADbox" style="display: block;">
+    <div class="advertisingImgBox">
+        <img id="adImg" src="https://img.wkzx.store/wkkcPhone.png">
+        <div class="closeAD" id="closeAD">
+            <img src="/image/closeAD.png" alt=""></div>
+    </div>
+</div>
+<div class="templet-bottom2">
+    <div class="bottomContainr">
+        <div class="containerStyle" style="display:flex">
+            <div>
+                <li>
+                    <a href="#" rel="nofollow">
+                        <span class="china">免责声明</span>
+                        <span class="usa" style="display: none;">disclaimer</span>
+                    </a></li>
+                <li class="Light">|</li>
+                <li onclick="report()"><a>
+                    <span class="china">举报</span>
+                    <span class="usa" style="display: none;">report</span>
+                </a></li>
+            </div>
+            <div>
+                <li class="language" onclick="tabChina()"><img alt="" src="/image/china.png"><a>中文</a></li>
+                <li class="Light">|</li>
+                <li class="language" onclick="tabEn()"><img alt="" src="/image/usa.png"><a>English</a></li>
+            </div>
+        </div>
+        <div class="init china">根据国家相关法律法规，悟空在线全力打击和防范互联网电信诈骗犯罪，请您在下载使用时仔细甄别，审慎下载！</div>
+        <div class="init usa" style="display: none;">According to the relevant laws and regulations of the state, Wukong
+            online to combat and prevent Internet telecom fraud crime, please carefully screen when you download and
+            use, download carefully!
+        </div>
+    </div>
+</div>
+
+<!-- 广告位置 -->
+
+
+<div class="emtryBottom"></div>
+
+
+<script type="text/javascript">
+
+    var ch = '28分钟前'
+    var en = '28minutes ago'
+    $('.usa').hide()
+
+
+    $('.updateTime').text(ch)
+
+    function tabChina() {
+        $('.china').show()
+        $('.usa').hide()
+        $("#resigning").val("安装中...")
+        $('#notAgree').val('暂不支持此系统')
+        $('#noDownNum').val("下载流量已用完,请联系开发者")
+        $('#beInstall').val('正在安装')
+        $("#download").val('立即下载')
+        $('.updateTime').text(ch)
+    }
+
+    function tabEn() {
+        $('.china').hide()
+        $(".usa").show()
+        $("#resigning").val("Installation...")
+        $('#notAgree').val('This system is not supported temporarily')
+        $('#noDownNum').val("Download times have been used up, please contact the developer")
+        $('#beInstall').val('Installation')
+        $("#download").val('Download')
+        $('.updateTime').text(en)
+    }
+
+
+    //判断本身安卓IOS
+    function typePhoneClass() {
+        let u = navigator.userAgent;
+        let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;   //判断是否是 android终端
+        let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);     //判断是否是 iOS终端
+
+        if (isAndroid) {
+
+        } else {
+
+        }
+
+
+    }
+
+    //转换时间格式 引入外部方法transformTime
+
+    function report() {
+        window.location.href = '/report/reportCell?softId=71160&softUrlSmall=QYSX'
+    }
+
+    $(".container").css("min-height", document.body.clientHeight)
+    /*
+    $(".templet-bottom2").css("margin-bottom", '24vw') */
+
+    //AD
+    $("#ADbox").hide()
+
+    $("#closeAD").click(function () {
+        $("#ADbox").hide()
+        $(".templet-bottom2").css("margin-bottom", '0')
+    })
+    var adUrl;
+    $.ajax({
+        type: 'GET',
+        url: '/advertising/getPhoneAdvertising',
+
+        success: function (data) {
+            if (data.code == 210) {
+                $("#ADbox").remove();
+            } else {
+                $("#ADbox").show()
+                if (!data.advertising) return;
+                $("#adImg").attr('src', data.advertising.imgUrl);
+                adUrl = data.advertising.link + '?id=71160'
+            }
+        }
+    });
+
+    $("#adImg").click(function () {
+        window.open(adUrl)
+
+    })
+
+    //生成二维码
+
+    /* 	var qrcode = new QRCode(document.getElementById("qrcode"), {
+            render : 'canvas',
+            width : 155,
+            height : 155
+        });
+
+        var type = '0'
+        function makeCode() {
+            if (type == 1) {
+                qrcode.makeCode('https://wkzx.wang/vip/QYSX');
+            } else {
+                qrcode.makeCode('https://wkzx.wang/QYSX');
+            }
+        }
+        makeCode(); */
+
+    $.ajax({
+        type: 'GET',
+        url: '/product/checkAuthEnough?userId=14572',
+        async: true,
+        success: function (data) {
+            if (data.result == 0) {
+                location.href = '/product/goAuth';
+            }
+        }
+    })
+
+    $.ajax({
+        type: 'GET',
+        url: '/product/saveVisitMess?softId=71160',
+        async: true,
+        success: function (data) {
+        }
+    });
+
+    var checkStatus;
+    var height = window.screen.height;
+    var width = window.screen.width;
+    //判断浏览器内核、手机系统等，使用 browser.version.ios
+    var browser1 = {
+        version: function () {
+            var u = navigator.userAgent;
+            var ua = navigator.userAgent.toLocaleLowerCase();
+            var app = navigator.appVersion;
+            return {
+                trident: u.indexOf('Trident') > -1, // IE内核
+                presto: u.indexOf('Presto') > -1, // opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, // 火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/)
+                    || !!u.match(/AppleWebKit/), // 是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), // IOS终端
+                android: u.indexOf('Android') > -1, // 安卓终端
+                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, // 是否为iphone或QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, // 是否为iPad
+                webApp: u.indexOf('Safari') == -1, // 是否web应用程序，没有头部与底部
+                QQbrw: u.indexOf('MQQBrowser') > -1, // QQ浏览器
+                weiXin: u.indexOf('MicroMessenger') > -1, // 微信
+                QQ: ua.match(/QQ/i) == "qq", // QQ
+                weiBo: ua.match(/WeiBo/i) == "weibo", // 微博
+                ucLowEnd: u.indexOf('UCWEB7.') > -1, //
+                ucSpecial: u.indexOf('rv:1.2.3.4') > -1,
+                webview: !(u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/)) && u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
+                ucweb: function () {
+                    try {
+                        return parseFloat(u.match(/ucweb\d+\.\d+/gi).toString().match(/\d+\.\d+/).toString()) >= 8.2
+                    } catch (e) {
+                        if (u.indexOf('UC') > -1) {
+                            return true;
+                        }
+                        return false;
+                    }
+                }(),
+                Symbian: u.indexOf('Symbian') > -1,
+                ucSB: u.indexOf('Firofox/1.') > -1
+            };
+        }()
+    };
+    if ('0' == 1) {//开启无痕安装
+        function udidinstall() {
+            var ua = navigator.userAgent.toLowerCase();
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                $('.vip-weixin-qq').show();
+                $('#download').hide();
+                $('#weixinAndQQ').show();
+                return false;
+            } else if (browser1.version.QQ && !browser1.version.QQbrw) {
+                $('.vip-weixin-qq').show();
+                $('#download').hide();
+                $('#weixinAndQQ').show();
+                return false;
+            }
+            if (browser1.version.QQbrw) {//qq浏览器
+                alert("请在Safari浏览器中打开本页");
+                return false;
+            }
+            if (ua.indexOf("crios") > -1) {//谷歌浏览器
+                alert("请在Safari浏览器中打开本页");
+                return false;
+            }
+            if (/Safari/.test(navigator.userAgent)
+                && !/Chrome/.test(navigator.userAgent)) {
+                if (ua.indexOf(" mac os x") > 0) {
+                    var regStr_saf = /os [\d._]*/gi;
+                    var verinfo = ua.match(regStr_saf);
+                    var version = (verinfo + "").replace(/[^0-9|_.]/ig, "")
+                        .replace(/_/ig, ".");
+                    var arr = version.split(".");
+                    if (!navigator.cookieEnabled) {
+                        alert("你的浏览器已禁用cookie");
+                        return false;
+                    }
+                    if (arr[0] > 11 && arr[1] >= 0) {
+                        showTeach(1);
+                    } else {
+                        showTeach(0);
+                    }
+                }
+
+            } else {
+                alert("请在Safari浏览器中打开本页");
+                return false;
+            }
+        }
+
+    } else {
+
+        if (0 == "912") {
+            $("#download").hide();
+            $("#noDownNum").show();
+        }
+
+        if ("912" == 10) {
+
+            //发邮件或短信提示开发者下载流量不足
+            $.ajax({
+                type: 'GET',
+                url: '/product/sendEmailForDownNum?downNum=912&userId=14572',
+                async: true,
+                success: function (data) {
+
+                }
+            });
+        }
+
+        function is_weixn_qq() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                $('.weixin-QQ-tip').show();
+                $('#download').hide();
+                $('#weixinAndQQ').show();
+            } else if (ua.indexOf('qq/') > 0 && ua.indexOf('mqqbrowser') > 0) {
+                $('.weixin-QQ-tip').show();
+                $('#download').hide();
+                $('#weixinAndQQ').show();
+            } else {
+                download("itms-services://?action=download-manifest&url=./app.plist");
+            }
+        }
+    }
+
+    function loading() {
+        var load_width = (width - 260) / 2;
+        var load_height = (height - 120) * 2 / 5;
+        var content = "<div style='text-align:center;'><img src='/image/phone/loading.gif' style='margin:12px;' alt=''><br><h4>正在配置下载,请不要关闭此页面<\h4></div>"
+        layer.open({
+            type: 1,
+            title: false,
+            shade: 0.3,
+            shadeClose: false,
+            closeBtn: 1,
+            offset: [load_height, load_width],
+            area: ['260px', '120px'], //宽高
+            content: content
+        });
+    }
+
+    //softUrl为下载链接
+    function download(urlStr) {
+        window.location.href = urlStr;
+        //window.location.href ='/templet/downSuccess?url='+ encodeURIComponent(urlStr);
+        if (browser1.version.android) {
+            $("#load").show();
+        } else {
+            $("#Home").show();
+        }
+        $("#download").hide();
+    }
+
+    $('.btn-close').click(function () {
+        $(".install-tip-mask").hide();
+        $(".install-tip").animate({
+            bottom: "-1000px"
+        });
+    });
+
+    function clock() {
+        $.ajax({
+            type: 'GET',
+            url: '/udid/checkStatus?softId=71160&UDID=',
+            async: true,
+            success: function (data) {
+                var status = data.result;
+                if (status == "1") {
+                    $("#a2").hide();
+                    $("#a1").show();
+                    $("#b").hide();
+                    $("#b2").show();
+                }
+                if (status == "2") {
+                    $("#b2").hide();
+                    $("#b1").show();
+                    $("#c2").show();
+                    $("#c").hide();
+                }
+                if (status == "3") {
+                    $("#c2").hide();
+                    //获取存放在隐藏域的itemservice链接
+                    var itemservice = data.itemservice;
+                    if (itemservice == null || itemservice == ""
+                        || itemservice == "undefined"
+                        || itemservice == undefined) {
+                        return;
+                    }
+                    $('#myModal').modal('hide');
+                    window.location.href = itemservice;
+                    /* 		window.location.href = '/templet/downSuccess?url='+encodeURIComponent(itemservice); */
+                    $("#resigning").hide();
+                    $("#beInstall").show();
+                    $("#Home").show();
+                    stopClock();
+                }
+
+            }
+        });
+    }
+
+    //打开itemservice之后 停止轮询 并将缓存中的itemservice移除掉
+    function stopClock() {
+        clearInterval(checkStatus);
+    }
+
+    if ('' != null && '' != '') {
+
+        //将本次下载获取到的udid设备号放到浏览器本地缓存中
+        try {
+            localStorage.setItem("udidcache", '');
+        } catch (e) {
+
+        }
+        $.ajax({
+            type: 'GET',
+            url: '/udid/checkEquipmentNum?softId=71160&UDID=',
+            timeout: 500000,
+            contentType: 'application/json',
+            async: true,
+            success: function (data) {
+                if (data.result == 'success') {
+                    $('#myModal').modal('show');
+                    $("#download").hide();
+                    $
+                        .ajax({
+                            type: 'GET',
+                            url: '/login/addudidtest?softUrl=QYSX&UDID=&softId=71160',
+                            timeout: 500000,
+                            contentType: 'application/json',
+                            async: true,
+                            success: function (data) {
+                                if (data.result == "success") {
+                                    //将包含下载链接的itemservice存入隐藏域
+
+                                } else if (data.result == "resignIng") {
+
+                                } else if (data.result == "resignMsg") {
+                                    $('#myModal').modal('hide');
+                                    alert(data.infoMsg);
+                                } else if (data.result == "downing") {
+                                    alert("有用户正在下载该应用，请稍后重试");
+                                    stopClock();
+                                } else {
+                                    $('#myModal').modal('hide');
+                                    alert(data.msg);
+
+                                }
+
+                            },
+                            error: function (XMLHttpRequest,
+                                             textStatus, errorThrown) {
+                                $('#myModal').modal('hide');
+                                alert("下载失败，请重试");
+                            }
+                        });
+
+                    checkStatus = self.setInterval("clock()", 1000 * 3);
+                } else {
+                    alert(data.result);
+                }
+            }
+        });
+    }
+
+    $(function () {
+        /* 		var noSleep = new NoSleep();
+                noSleep.enable(); // keep the screen on! */
+        if ("内测版" == "内测版" || "0" == 1) {
+            $("#trust").hide();
+        }
+        /*
+         * 智能机浏览器版本信息:
+         *
+         */
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {//移动终端浏览器版本信息
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/)
+                        || !!u.match(/AppleWebKit/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1
+                        || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                    webApp: u.indexOf('Safari') == -1
+                    //是否web应该程序，没有头部与底部
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        }
+
+        if (browser.versions.ios || browser.versions.iPhone
+            || browser.versions.iPad) {
+            // TODO 此处写ios的下载地址
+
+        } else if (browser.versions.android) {
+
+        }
+        if ("IOS" == "IOS") {
+            if (!(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad)) { //非苹果端
+                $("#download").hide();
+                $("#notAgree").show();
+                $("#showDownButton").hide();
+            }
+        } else {//安卓
+            $("#trust").hide();
+            if (browser.versions.ios || browser.versions.iPhone
+                || browser.versions.iPad) {
+                $("#download").hide();
+                $("#notAgree").show();
+                $("#showDownButton").hide();
+            }
+        }
+    });
+
+    function trust() {
+        window.location.href = "/templet/trustTeach";
+    }
+
+    function showTeach(newOrOld) {
+        var teach_width = (width - 315) / 2;
+        var teach_height = (height - 400) / 3;
+        var content = '<div class="showT"><div id="myCarousel" class="carousel slide"  data-ride="carousel" data-interval="0">'
+            + '<ol class="carousel-indicators">'
+            + '<li data-target="#myCarousel" data-slide-to="0" class="active"></li>'
+            + '<li data-target="#myCarousel" data-slide-to="1"></li>'
+            + '<li data-target="#myCarousel" data-slide-to="2"></li>'
+            + '<li data-target="#myCarousel" data-slide-to="3"></li>'
+        if (newOrOld == 1) {
+            content += '<li data-target="#myCarousel" data-slide-to="4"></li>'
+        }
+        content += '</ol>'
+            + '<div class="carousel-inner">'
+            + '<div class="item active">'
+            + '<img src="/image/vipTeach/firstTeach.png" alt="First slide">'
+            + '<h3>第一步</h3>' + '<h4>点击“<span>允许</span>”进行下一步操作。</h4>'
+            + '</div>' + '<div class="item">'
+        if (newOrOld == 1) {//12.2以后的版本
+            content += '<img src="/image/vipTeach/secendTeach.png" alt="Second slide"/>'
+                + '<h3>第二步</h3>'
+                + '<h4>点击“<span>关闭</span>”弹窗，然后进行下一步操作。</h4>' + '</div>'
+                + '<div class="item">'
+                + '<img src="/image/vipTeach/firstTeach.png" alt="Third slide">'
+                + '<h3>第三步</h3>'
+                + '<h4>点击“<span>允许</span>”,然后进行下一步操作。</h4>' + '</div>'
+                + '<div class="item">'
+                + '<img src="/image/vipTeach/fouthTeach.png" alt="Fourth slide">'
+                + '<h3>第四步</h3>'
+                + '<h4>点击右上角“<span>安装</span>”，然后进行下一步操作。</h4>' + '</div>'
+                + '<div class="item">'
+                + '<img src="/image/vipTeach/fifthTeach.png" alt="Fifth slide">'
+                + '<h3>第五步</h3>' + '<h4>点击“<span>安装</span>”即可。</h4>'
+        } else {//12.以前的版本
+            content += '<img src="/image/vipTeach/fouthTeach.png" alt="Fourth slide">'
+                + '<h3>第二步</h3>' + '<h4>点击“<span>安装</span>”进行下一步操作。</h4>'
+                + '</div>' + '<div class="item">'
+                + '<img src="/image/vipTeach/thirdOld.png" alt="Third slide">'
+                + '<h3>第三步</h3>'
+                + '<h4>点击“<span>安装</span>”后，系统会自动跳转到当前页面，请耐心等待！</h4>'
+                + '</div>' + '<div class="item">'
+                + '<img src="/image/vipTeach/fifthTeach.png" alt="Fifth slide">'
+                + '<h3>第四步</h3>' + '<h4>点击“<span>安装</span>”即可。</h4>'
+        }
+        content += '</div>'
+            + '</div>'
+            + '</div></div>'
+            + '<div class="conti"> <img src="/image/vipTeach/continueInstall.png" alt="Fifth slide" onclick="contInstall('
+            + newOrOld + ')"></div>'
+        layer.open({
+            type: 1,
+            title: false,
+            shade: 0.2,
+            shadeClose: true,
+            closeBtn: 0,
+            offset: [teach_height, teach_width],
+            area: ['315px', '400px'], //宽高
+            content: content
+        });
+    }
+
+    function contInstall(newOrOld) {
+
+        //获取udid之前 首先判断localStorage中是否有udid的缓存 如果有 直接通过udid和softId跳转到下载页
+        if (localStorage.hasOwnProperty('udidcache')) {
+            var udid = localStorage.getItem('udidcache');
+            if (udid != "" && udid != null && udid != undefined) {
+
+                var remark4 = "0";
+                if (remark4 == 1) {
+                    window.location.href = "";
+                    setTimeout(
+                        function () {
+                            window.location.href = 'https://p.udid.store/embedded.mobileprovision'
+                        }, 2 * 1000);//延
+                } else {
+                    window.location.href = 'https://wkzx.store/login/udidToVip?udid=' + udid + '&softId=' + 71160;
+                }
+
+            } else {
+                vipDown(newOrOld);
+            }
+        } else {
+            vipDown(newOrOld);
+        }
+    }
+
+    function vipDown(newOrOld) {
+        window.location.href = "";
+        if (newOrOld == 1) {
+            setTimeout(
+                function () {
+                    window.location.href = 'https://p.udid.store/embedded.mobileprovision'
+                }, 2 * 1000);//延
+        }
+    }
+
+    var startx;
+    //手指接触屏幕
+    document.addEventListener("touchstart", function (e) {
+        startx = e.touches[0].pageX;
+    }, false);
+    //手指离开屏幕
+    document.addEventListener("touchend", function (e) {
+        var endx;
+        endx = e.changedTouches[0].pageX;
+        var direction = endx - startx;
+        ;
+        if (direction > 0) {
+            $('#myCarousel').carousel('prev')
+        } else {
+            $('#myCarousel').carousel('next')
+        }
+    }, false);
+
+
+</script>
+
+
+</body>
+</html>
