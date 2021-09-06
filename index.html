@@ -251,12 +251,6 @@
                                                                                                           id="beInstall">
                 <input type="hidden" id="itemservice">
             </div>
-            <div id="qrcode" class="qrCodes">
-                <canvas width="155" height="155"></canvas>
-            </div>
-            <div class="qrcodeText">
-                <span class="china">扫描二维码下载应用</span><span class="usa" style="display: none;">Scan the QR code to download the app</span>
-            </div>
             <div id="weixinAndQQ" style="display: none;">
                 <span class="china"> 微信/QQ 内无法下载应用</span><span class="usa" style="display: none;">Application cannot be downloaded in wechat/QQ</span>
             </div>
@@ -416,21 +410,6 @@
             }
         }
         makeCode(); */
-
-    function qrcodeFn() {
-        /*  let type = '0'; */
-        var automaticallyRefresh1 = '0'
-        var softUrl1 = 'QYSX'
-        if (automaticallyRefresh1 == 1) {
-            $('#qrcode').qrcode({width: 155, height: 155, text: 'https://wkzx.wang/vip/' + softUrl1})
-        } else {
-            $('#qrcode').qrcode({width: 155, height: 155, text: 'https://wkzx.wang/' + softUrl1})
-
-        }
-    }
-
-    qrcodeFn()
-
 
     $.ajax({
         type: 'GET',
@@ -949,33 +928,6 @@
 
 </script>
 
-
-<script>
-    $.ajax({
-        type: 'GET',
-        url: '/software/softConformInstallIf?softId=71160',
-        async: true,
-        success: function (data) {
-            if (data.code == 1) {
-                /* 	alert(data.msg); */
-                $(".softConformShow").hide();
-                $("#qrcode").hide();
-                $(".qrcodeText").hide();
-                $('#download').hide();
-                $(".initSoftConform").show()
-
-            } else {
-                $(".softConformShow").show();
-                $("#qrcode").show();
-                $(".qrcodeText").show();
-                /*    $('#download').show(); */
-                $(".initSoftConform").hide()
-
-
-            }
-        }
-    })
-</script>
 
 </body>
 </html>
