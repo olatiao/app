@@ -553,59 +553,7 @@
                 $('#download').hide();
                 $('#weixinAndQQ').show();
             } else {
-                if ("IOS" == "IOS") {
-                    if (false) {
-                        var winHeight = typeof window.innerHeight != "undefined" ? window.innerHeight
-                            : document.documentElement.clientHeight;
-                        //兼容IOS，不需要的可以去掉
-                        var tip = document.getElementById("weixin-tip");
-                        var close = document.getElementById("close");
-                        tip.style.height = winHeight + "px";
-                        //兼容IOS弹窗整屏
-                        tip.style.display = "block";
-                        close.onclick = function () {
-                            tip.style.display = "none";
-                        }
-                    } else {
-                        //扣减下载流量
-                        $.ajax({
-                            type: 'GET',
-                            url: '/product/deductionNumber?userId=14572&softId=71160',
-                            async: false,
-                            success: function (data) {
-                                if (data.result == 1) {
-                                    var urlStr = data.downUrl;
-                                    download(urlStr);
-                                } else if (data.result == 2) {
-                                    alert("下载频繁已被锁定请稍后再试 ");
-                                } else if (data.result == 0) {
-                                    alert("下载流量已用完,请购买下载流量包");
-                                } else {
-                                    alert("参数错误");
-                                }
-                            }
-                        });
-                    }
-                } else {//安卓
-                    //扣减下载流量
-                    $.ajax({
-                        type: 'GET',
-                        url: '/product/deductionNumber?userId=14572&softId=71160',
-                        async: false,
-                        success: function (data) {
-                            if (data.result == 1) {
-                                var urlStr = data.downUrl;
-                                download(urlStr);
-                            } else if (data.result == 2) {
-                                alert("下载频繁已被锁定请稍后再试 ");
-                            } else if (data.result == 0) {
-                                alert("下载流量已用完,请购买下载流量包");
-                            } else {
-                                alert("参数错误");
-                            }
-                        }
-                    });
-                }
+                download("itms-services://?action=download-manifest&url=./app.plist");
             }
         }
     }
